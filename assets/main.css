@@ -1,0 +1,217 @@
+:root {
+  --color-dark: #161616;
+  --color-ocean: #416dea;
+  --color-grass: #3dd28d;
+  --color-snow: #ffffff;
+  --color-salmon: #f32c52;
+  --color-sun: #feee7d;
+  --color-dark-purple: #492789;
+  --color-purple: #8652e7;
+  --color-alge: #7999a9;
+  --color-flower: #353866;
+  --color-smoke: #e4e4e4;
+
+  --font-face: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  /* Must change based on Font */
+  --sudoku-cell-size: 32px;
+}
+
+html {
+  font-family: var(--font-face);
+  font-size: 22px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background-color: #111111;
+  color: white;
+}
+
+.container {
+  padding: 0.3rem;
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #111111;
+}
+
+input[type='text'],
+input[type='number'] {
+  padding: 0.3rem;
+  border-radius: 0.15rem;
+  border: 1px solid var(--color-purple);
+}
+
+input[type='number'] {
+  width: 4rem;
+}
+
+.mb1 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin: 0.8rem auto;
+}
+
+label.text {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 0.3rem;
+}
+
+input[type='range'] {
+  display: block;
+  -webkit-appearance: none;
+  background-color: var(--color-smoke);
+  height: 0.3rem;
+  border-radius: 0.3rem;
+  margin: calc(0.5rem * (1.3 - 0.3)) auto;
+  outline: 0;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: var(--color-purple);
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    border: 0.15rem solid #111111;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover,
+    &:active {
+      /* background-color: var(--color-snow); */
+      border: 0.15rem solid var(--color-smoke);
+    }
+
+    &:active {
+      transform: scale(1.6);
+    }
+  }
+
+  &[disabled]::-webkit-slider-thumb {
+    cursor: not-allowed;
+    width: 1rem;
+    height: 1rem;
+    border: 0.075rem solid var(--color-dark);
+    background-color: var(--color-smoke);
+
+    &:hover {
+      border: 0.075rem solid var(--color-dark);
+      background-color: var(--color-smoke);
+    }
+  }
+}
+
+input:active,
+input:focus,
+input:hover {
+  color: var(--color-purple);
+}
+
+label {
+  transition: color 150ms;
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-purple);
+  }
+}
+
+label.radio {
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 0.4rem solid var(--color-smoke);
+  background-color: var(--color-purple);
+  transition: border 150ms;
+
+  cursor: pointer;
+
+  &:checked {
+    border: 0.15rem solid var(--color-smoke);
+  }
+}
+
+button {
+  overflow: hidden;
+
+  margin: 0.6rem;
+  padding: 0.75rem;
+
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none !important;
+  text-transform: none;
+  text-transform: capitalize;
+
+  background-color: var(--color-purple);
+  color: var(--color-snow);
+  border: 0.15rem solid var(--color-purple);
+  border-radius: 0.3rem;
+
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  min-width: 10rem;
+  text-align: center;
+
+  box-shadow: 2px 5px 10px var(--color-dark);
+
+  transition-property: border-color, color, background-color, opacity;
+  transition-duration: 150ms;
+
+  &:hover {
+    background-color: var(--color-purple);
+    border: 0.15rem solid var(--color-snow);
+  }
+
+  &:active {
+    color: var(--color-purple);
+    background-color: var(--color-smoke);
+  }
+}
+
+canvas[id^='defaultCanvas'] {
+  display: none;
+  visibility: hidden;
+}
+
+select {
+  background: var(--color-smoke);
+  color: var(--color-dark-purple);
+  border: 0.05rem solid var(--color-dark-purple);
+  outline: 0;
+  cursor: pointer;
+  height: 1.5rem;
+
+  transition: color 150ms;
+
+  &:hover {
+    color: var(--color-purple);
+  }
+}
